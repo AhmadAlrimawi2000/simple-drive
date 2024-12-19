@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "650217411123",
+    "project_id": "simple-drive-de2e6",
+    "storage_bucket": "simple-drive-de2e6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650217411123:android:439f400bc91c5c687d4946",
+        "android_client_info": {
+          "package_name": "com.example.simple_drive_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM3MtTJveETUUoJLjoK9ntB5VQI-359zg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
