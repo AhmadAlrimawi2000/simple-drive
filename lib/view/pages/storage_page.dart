@@ -7,12 +7,18 @@ class StoragePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: <Widget>[
-        SizedBox(height: 40),
-        StorageContainer(),
-        UploadOptions(),
-      ],
+    return const Expanded(
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 40),
+          StorageContainer(),
+          Spacer(),
+          Padding(
+            padding: EdgeInsets.only(bottom: 18),
+            child: UploadOptions(),
+          ),
+        ],
+      ),
     );
   }
 }

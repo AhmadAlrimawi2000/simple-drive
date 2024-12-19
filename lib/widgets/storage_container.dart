@@ -30,6 +30,7 @@ class StorageContainer extends StatelessWidget {
         padding: const EdgeInsets.only(top: 25, bottom: 35),
         child: Column(
           children: <Widget>[
+            //! Percentage Circle
             Container(
               width: 150,
               height: 150,
@@ -49,7 +50,7 @@ class StorageContainer extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "19",
+                        "33",
                         style: textStyle(
                           50,
                           AppColors.textThree,
@@ -78,6 +79,7 @@ class StorageContainer extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+            //! Free And Used Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
@@ -136,7 +138,7 @@ class StorageContainer extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "10 GB",
+                          "100 GB",
                           style: textStyle(
                             20,
                             AppColors.textThree,
