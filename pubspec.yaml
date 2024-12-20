@@ -43,6 +43,7 @@ dependencies:
   firebase_storage: ^12.3.7
   google_fonts: ^6.2.1
   eva_icons_flutter: ^3.1.0
+  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
