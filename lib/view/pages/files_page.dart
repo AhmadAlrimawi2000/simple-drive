@@ -1,13 +1,18 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:simple_drive_app/constants/app_colors.dart';
 import 'package:simple_drive_app/constants/utils.dart';
+import 'package:simple_drive_app/controller/files_page_controller.dart';
 import 'package:simple_drive_app/widgets/folder_section.dart';
 import 'package:simple_drive_app/widgets/recent_files.dart';
 
 class FilesPage extends StatelessWidget {
-  const FilesPage({super.key});
+  FilesPage({super.key});
+
+  final TextEditingController folderNameController = TextEditingController();
+  FilesPageController filesPageController = Get.put(FilesPageController());
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +67,7 @@ class FilesPage extends StatelessWidget {
                   children: <Widget>[
                     InkWell(
                       onTap: () {
+                        Get.back();
                         openAddFolderDialog(context);
                       },
                       child: Row(
@@ -122,6 +128,7 @@ class FilesPage extends StatelessWidget {
               ),
             ),
             content: TextFormField(
+              controller: folderNameController,
               autofocus: true,
               style: textStyle(
                 17,
@@ -154,7 +161,19 @@ class FilesPage extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  userCollection
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .collection("folders")
+                      .add({
+                    "name": folderNameController.text.trim(),
+                    "time": DateTime.now(),
+                  });
+                  Get.back();
+                  showMessage(
+                      context: context,
+                      message: "Folder has been added successfully!");
+                },
                 child: Text(
                   "Create",
                   style: textStyle(

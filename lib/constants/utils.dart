@@ -63,3 +63,23 @@ Widget loadingImage() {
     child: Icon(Icons.circle, color: AppColors.orange),
   );
 }
+
+showMessage({required BuildContext context, required String message}) {
+  SnackBar snackBar = SnackBar(
+    duration: const Duration(seconds: 1),
+    content: Text(
+      message,
+      style: textStyle(
+        18,
+        Colors.white,
+        FontWeight.bold,
+      ),
+    ),
+    backgroundColor: AppColors.orange,
+    shape: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.transparent),
+      borderRadius: BorderRadius.zero,
+    ),
+  );
+  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+}
