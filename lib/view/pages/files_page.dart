@@ -1,5 +1,6 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:simple_drive_app/constants/app_colors.dart';
 import 'package:simple_drive_app/constants/utils.dart';
 import 'package:simple_drive_app/widgets/folder_section.dart';
@@ -12,7 +13,7 @@ class FilesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Stack(
-        alignment: AlignmentDirectional.bottomEnd,
+        alignment: AlignmentDirectional.bottomCenter,
         children: [
           Padding(
             padding: const EdgeInsets.only(
@@ -60,7 +61,9 @@ class FilesPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        openAddFolderDialog(context);
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -97,6 +100,71 @@ class FilesPage extends StatelessWidget {
                     ),
                   ],
                 )),
+          );
+        });
+  }
+
+  openAddFolderDialog(context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            actionsPadding: const EdgeInsets.only(right: 10, bottom: 10),
+            shape: OutlineInputBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+            title: Text(
+              "New folder",
+              style: textStyle(
+                17,
+                Colors.black,
+                FontWeight.w600,
+              ),
+            ),
+            content: TextFormField(
+              autofocus: true,
+              style: textStyle(
+                17,
+                Colors.black,
+                FontWeight.w600,
+              ),
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.grey[250],
+                hintText: "Untitled Folder",
+                hintStyle: textStyle(
+                  16,
+                  Colors.grey,
+                  FontWeight.w500,
+                ),
+              ),
+            ),
+            actions: [
+              InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Text(
+                  "Cancel",
+                  style: textStyle(
+                    16,
+                    AppColors.textTwo,
+                    FontWeight.bold,
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {},
+                child: Text(
+                  "Create",
+                  style: textStyle(
+                    16,
+                    AppColors.orange,
+                    FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
           );
         });
   }
