@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:simple_drive_app/constants/app_colors.dart';
 import 'package:simple_drive_app/constants/utils.dart';
 import 'package:simple_drive_app/controller/files_page_controller.dart';
+import 'package:simple_drive_app/firebase.dart';
 import 'package:simple_drive_app/widgets/folder_section.dart';
 import 'package:simple_drive_app/widgets/recent_files.dart';
 
@@ -88,7 +89,10 @@ class FilesPage extends StatelessWidget {
                     ),
                     // const SizedBox(width: 30),
                     InkWell(
-                      onTap: () {},
+                      onTap: () async {
+                        // FirebaseService firebaseService = FirebaseService();
+                        // await firebaseService.uploadFile("");
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
