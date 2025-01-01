@@ -18,10 +18,10 @@ class FilesPageController extends GetxController {
           .snapshots()
           .map((QuerySnapshot query) {
         List<FolderModel> folders = [];
-        query.docs.forEach((element) {
+        for (var element in query.docs) {
           FolderModel folder = FolderModel.fromDocumentSnapshot(element);
           folders.add(folder);
-        });
+        }
         return folders;
       }),
     );
